@@ -15,13 +15,24 @@
 		})
 	})
 </script>
+
 <section>
-<form method="POST">
+<!-- 
+<c:if test="${button=='update'}">
+	<form method="POST" enctype="multipart/form-data" action="${rootpath}/email/update">
+	
+</c:if>
+<c:if test="${button=='insert'}">
+	<form method="POST" enctype="multipart/form-data">
+	
+</c:if>
+ -->
+	<form method="POST" enctype="multipart/form-data">
 
 	<fieldset>
 	<legend>Email Write</legend>
 	
-	<input type="hidden" id="id" value="${VO.id}">
+	<input type="hidden" id="id" value="<c:out value='${VO.id}' default='0' />" name="id">
 	
 	<label>발송Email</label>
 	<input type="text" name="from_email" 
@@ -41,16 +52,18 @@
 	<label>메일내용</label>
 	<input type="text" name="s_content" 
 			id="s_content" value="${VO.s_content}"><br/>
-	<label>첨부파일1</label>
-	<input type="file" name="s_file1" multiple="multiple"
-			id="s_file1" value="${VO.s_file1}"><br/>
-	<label>첨부파일2</label>
-	<input type="file" name="s_file2" 
-			id="s_file2" value="${VO.s_file2}"><br/>
 	
+	<div>
+	<label>첨부파일1</label>
+	<input type="file" name="s_filea" 
+			id="s_filea"><br/>
+	<label>첨부파일2</label>
+	<input type="file" name="s_fileb" 
+			id="s_fileb"><br/>
+	</div>
 	<br/>
 	<c:if test="${button=='insert' }">
-	<button type="button" id="btn_save">저장</button>
+	<button type="button" id="btn_save">보내버리기</button>
 	</c:if>
 	</fieldset>
 	<c:if test="${button=='update' }">

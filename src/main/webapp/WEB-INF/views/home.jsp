@@ -58,7 +58,8 @@ th, td {
 						<td colspan=9>데이터 없음</td>
 					</tr>
 				</c:when>
-				<c:otherwise>
+				
+			<c:otherwise>
 					<c:forEach var="vo" items="${EMAILS}" varStatus="i">
 						<tr class="email_tr" data-id="${vo.id}">
 							<td>${i.count}</td>
@@ -72,7 +73,8 @@ th, td {
 							<td>${vo.s_file2}</td>
 						</tr>
 					</c:forEach>
-				</c:otherwise>
+			</c:otherwise>
+			
 			</c:choose>
 		</table>
 		</form>
